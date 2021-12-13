@@ -1,0 +1,3 @@
+{ "role": { "name": "sap.tm.trp.roles::TrpKpiAccessSchemaAdmin",
+"schema_privileges": [{
+		   "privileges": ["SELECT METADATA", "CREATE ANY", "SELECT CDS METADATA", "SELECT", "INSERT", "UPDATE", "EXECUTE", "DELETE", "ALTER", "CREATE TEMPORARY TABLE" ] } ] } }

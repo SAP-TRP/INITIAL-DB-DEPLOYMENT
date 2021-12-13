@@ -1,0 +1,22 @@
+_schema-version: "3.1"
+ID: TRP
+extends: trp-trp4_build
+
+resources:
+  - name: trp4_hdi_sd_db
+    parameters:
+      service-name: TRP_DB_SD_SERVICE_TRP_TEST
+      config:
+        schema: SAP_TRP_SD_TRP_TEST
+
+  - name: trp4_hdi_kpi_db
+    parameters:
+      service-name: TRP_DB_KPI_SERVICE_TRP_TEST
+      config:
+        schema: SAP_TRP_KPI_TRP_TEST
+
+  - name: trp4_hdi_pr_db
+    parameters:
+      service-name: TRP_DB_PR_SERVICE_TRP_TEST
+      config:
+        schema: SAP_TRP_PR_TRP_TEST

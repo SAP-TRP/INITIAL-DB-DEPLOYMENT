@@ -1,0 +1,13 @@
+{
+  "name": "TRP4_XSA_KPI-db",
+  "dependencies": {
+    "@sap/hdi-deploy": "4.2.2"
+  },
+  "engines": {
+    "node": "^10 || ^12"
+  },
+  "scripts": {
+    "postinstall": "npm dedupe && node .build.js",
+    "start": "node node_modules/@sap/hdi-deploy/deploy.js"
+  }
+}

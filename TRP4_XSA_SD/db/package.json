@@ -1,0 +1,15 @@
+{
+  "name": "trp-sd-db",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@sap/hdi-deploy": "4.2.2"
+  },
+  "scripts": {
+    "postinstall": "npm dedupe && node .build.js",
+    "start": "node node_modules/@sap/hdi-deploy/deploy.js"
+  },
+  "engines": {
+    "node": "^10 || ^12"
+  }
+}
