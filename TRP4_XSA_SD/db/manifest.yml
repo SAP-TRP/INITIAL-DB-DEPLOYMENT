@@ -1,0 +1,25 @@
+ID: trp-sd
+_schema-version: "3.1"
+version: 1.0.0
+
+applications:
+  - name: trp-sd-db
+    instances: 1
+    services:
+      - TRP_DB_SD_SERVICE_TST
+      - SAP_TRP_SYN_GRANTOR_SRV
+    memory: 1G
+    timeout: 180
+    no-start: true
+    health-check-type: port
+    #http-invocation-timeout: 6000
+    #no-route: true
+    env:
+      TARGET_CONTAINER: TRP_DB_SD_SERVICE_TST
+      SERVICE_REPLACEMENTS:
+        [
+          {
+            "key": "trp_core_table_grantor",
+            "service": "SAP_TRP_SYN_GRANTOR_SRV",
+          },
+        ]

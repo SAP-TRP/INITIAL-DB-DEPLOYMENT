@@ -1,0 +1,61 @@
+ID: trp-trp4_build
+_schema-version: "3.1"
+version: 0.0.0
+
+modules:
+
+  - name: trp-sd-db
+    type: hdb
+    path: TRP4_XSA_SD/db
+    parameters:
+      no-start: true
+    requires:
+      - name: trp4_hdi_sd_db
+        properties:
+          TARGET_CONTAINER: "~{trp4_sd_hdi_container_srv}"
+
+  - name: trp-kpi-db
+    type: hdb
+    path: TRP4_XSA_KPI/db
+    parameters:
+      no-start: true
+    requires:
+      - name: trp4_hdi_kpi_db
+        properties:
+          TARGET_CONTAINER: "~{trp4_kpi_hdi_container_srv}"
+
+  - name: trp-pr-db
+    type: hdb
+    path: TRP4_XSA_PR/db
+    parameters:
+      no-start: true
+    requires:
+      - name: trp4_hdi_pr_db
+        properties:
+          TARGET_CONTAINER: "~{trp4_pr_hdi_container_srv}"
+
+resources:
+
+  - name: trp4_hdi_sd_db
+    type: com.sap.xs.hdi-container
+    properties:
+      trp4_sd_hdi_container_srv: ${service-name}
+    parameters:
+      service-tags:
+        - trp4_sd_db
+
+  - name: trp4_hdi_kpi_db
+    type: com.sap.xs.hdi-container
+    properties:
+      trp4_kpi_hdi_container_srv: ${service-name}
+    parameters:
+      service-tags:
+        - trp4_kpi_db
+
+  - name: trp4_hdi_pr_db
+    type: com.sap.xs.hdi-container
+    properties:
+      trp4_pr_hdi_container_srv: ${service-name}
+    parameters:
+      service-tags:
+        - trp4_pr_db

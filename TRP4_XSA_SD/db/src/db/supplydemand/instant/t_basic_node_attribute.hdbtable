@@ -1,0 +1,8 @@
+COLUMN TABLE "sap.tm.trp.db.supplydemand.instant::t_basic_node_attribute" 
+(
+    "LOG_SYS" NVARCHAR(10),
+    "CLIENT" NVARCHAR(10),
+    "SOURCE_KEY" NVARCHAR(32),
+    "SOURCE_TYPE" NVARCHAR(20),
+	PRIMARY KEY ("LOG_SYS","CLIENT","SOURCE_KEY","SOURCE_TYPE")
+ ) UNLOAD PRIORITY 5  AUTO MERGE 

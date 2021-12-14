@@ -1,0 +1,34 @@
+ID: trp-kpi
+_schema-version: "3.1"
+version: 1.0.0
+applications:
+  - name: trp-kpi-db
+    services:
+      - TRP_DB_KPI_SERVICE_X0M
+      - SAP_TRP_SYNONYM_GRANTOR_SERVICE
+      - SAP_TRP_CLASSICAL_OBJECT_REG
+    memory: 1G
+    timeout: 120
+    no-start: true
+    health-check-type: port
+    #http-invocation-timeout: 6000
+    #no-route: true
+    env:
+      TARGET_CONTAINER: TRP_DB_KPI_SERVICE_TST
+      SAP_JWT_TRUST_ACL:
+        [
+         {"clientid":"*","identityzone":"*"}
+        ]
+      SERVICE_REPLACEMENTS:
+        [  
+          { "key": "trp_obj_reg_classical_table_grantor", "service": "SAP_TRP_CLASSICAL_OBJ_REG_SRV" },
+          { "key": "trp_core_table_grantor", "service": "SAP_TRP_SYN_GRANTOR_SRV" }
+        ]
+      destinations:
+        [
+          {
+              "name":"trp-pc-srv",
+              "url":"https://gcl0139.wdf.sap.corp:51120",
+              "forwardAuthToken": true
+          }
+        ]

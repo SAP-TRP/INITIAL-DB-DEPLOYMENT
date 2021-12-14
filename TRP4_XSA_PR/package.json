@@ -1,0 +1,48 @@
+{
+  "name": "trp-pr",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Transportation Resource Planning Pickup Return",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@sap/cds": "4.4.3",
+    "@sap/cds-dk": "2.0.7"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "eslint": "^7.24.0",
+    "mbt": "^1.0.15",
+    "node-style": "^2.0.1"
+  },
+  "engines": {
+    "node": "^10 || ^12"
+  },
+  "eslint.enable": true,
+  "eslint.autoFixOnSave": true,
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pretest"
+    }
+  },
+  "scripts": {
+    "build": "node node_modules/@sap/cds/bin/cds.js build",
+    "deploy": "node node_modules/@sap/cds/bin/cds.js deploy",
+    "start": "node node_modules/@sap/cds/bin/cds.js run"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "hana",
+        "model": [
+          "db"
+        ]
+      }
+    },
+    "odata": {
+      "version": "v4"
+    }
+  },
+  "files": [
+    "db"
+  ]
+}
